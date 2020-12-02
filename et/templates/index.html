@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+    <section class="one">
+      <div class="ticket">
+        <div class="box-one">
+          <div class="select-box">
+            <div class="selected">Все категории</div>
+            <div class="options-container">
+
+              <div class="option">
+                <input
+                  type="radio"
+                  class="radio-second"
+                  id="Все категории"
+                  name="category"
+                />
+                <label for="Все категории"
+                  >Все категории</label
+                >
+              </div>
+
+              <a href="/filter/category=mm">
+                <div class="option">
+                  
+                  <input
+                    type="radio"
+                    class="radio-second"
+                    id="Мясная продукция"
+                    name="category"
+                  />
+                  <label for="Мясная продукция">Мясная продукция</label>
+
+                </div>
+              </a>
+              <div class="option">
+                <input
+                  type="radio"
+                  class="radio-second"
+                  id="Кисломолочная продукция"
+                  name="category"
+                />
+                <label for="Кисломолочная продукция"
+                  >Кисломолочная продукция</label
+                >
+              </div>
+              <div class="option">
+                <input
+                  type="radio"
+                  class="radio-second"
+                  id="Овощи и фрукты"
+                  name="category"
+                />
+                <label for="Овощи и фрукты">Овощи и фрукты</label>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="two">
+      <div class="container">
+        <h1>{{ category }}</h1>
+        {% for card in products %}
+          
+          <div class="box_one">
+              <div class="box_img">
+                <img src="{{ card.img }}" alt="" width="500px" /> 
+              </div>
+            <div class="box_one-item">
+              <h2>{{ card.title }}</h2>
+              <p>{{ card.price }} тг.</p>
+            </div>
+            <div class="box_two-item">
+              <p>{{ card.description }}</p>
+            </div>
+            <div class="box_three-item">
+              <p>{{ card.name }} - {{ card.time }}, {{ card.place }}</p>
+            </div>
+          </div>
+          
+      {% endfor %}
+      
+      </div>
+      <section class="page">
+          <div class="container">
+              <div class="page_number">
+                  <a href="#" class="page_arrow"><img src="{% static 'img/arrow_left.png' %}" alt=""></a>
+                  <a href="#!" class="action">1</a>
+                  <a href="#!" class="page_num">2</a>
+                  <a href="#!" class="page_num">3</a>
+                  <a href="#!" class="page_num">4</a>
+                  <a href="#!" class="page_num">5</a>
+                  <a href="#!" class="page_num">6</a>
+                  <a href="#!" class="page_num">...</a>
+                  <a href="#!" class="page_num-last">11</a>
+                  <a href="#" class="page_arrow"><img src="{% static 'img/arrow_right.png' %}" alt=""></a>
+              </div>
+          </div>
+      </section>
+    </section>
+
+  {% endblock %}

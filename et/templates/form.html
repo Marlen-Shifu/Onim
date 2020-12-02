@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+	
+	{% block content %}
+
+		{% if add_offer %}
+			{% if user.is_authenticated %}
+			<h1>Add</h1>
+			<form action="add_offer" class="form" method="post" id="form"  enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ add_offer }}
+				<input type="submit">
+			</form>
+			{% else %}
+			<h1>You should login to make offers.</h1>
+			{% endif %}
+		{% endif %}
+
+		{% if register %}
+		<h1>Register</h1>
+		<form action="register_user" class="form" method="post" id="form"  enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ register }}
+			<input type="submit">
+		</form>
+		{% endif %}
+
+		{% if login %}
+		<h1>Login</h1>
+		<form action="login_user" class="form" method="post" id="form"  enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ login }}
+			<input type="submit">
+		</form>
+		{% endif %}
+
+	{% endblock %}

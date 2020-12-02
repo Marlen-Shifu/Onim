@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+
+{% block content %}
+	<div class="content">
+		<div class="container">
+			<div class="container-content">
+
+				<div class="info">
+
+					<p>Name: {{ user.username }}</p>
+					<p>Email: {{ user.email }}</p>
+					
+				</div>
+
+				<div class="offers">
+					{% for offer in offers %}
+          
+				        <div class="box_one">
+
+				            <div class="box_img">
+				            	<img src="{{ offer.img }}" alt="" width="500px" /> 
+				            </div>
+
+				            <div class="box_one-item">
+				            	<h2>{{ offer.title }}</h2>
+				            	<p>{{ offer.price }} тг.</p>
+				            </div>
+
+				            <div class="box_two-item">
+				            	<p>{{ offer.description }}</p>
+				            </div>
+
+				            <div class="box_three-item">
+				            	<p>{{ offer.name }} - {{ offer.time }}, {{ offer.place }}</p>
+				            </div>
+
+				        </div>
+				          
+				    {% endfor %}
+				</div>	
+				
+			</div>
+			
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+If goal is done print plus by it.
+
+1. Remake Offer model. +
+2. Include function add offer by user (form on new page). + 
+3. View main page(Ќастроить правильное отображение предложений) + 
+4. Functions of register +
+5. and autorization users. + 
+5. Only registered users can make offers. +
+6. Make UserProfile. + 
+6.5 Make filter by categories.
+7. Stylization templates and remove not important.
+8. Make Error.html
